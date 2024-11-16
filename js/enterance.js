@@ -12,12 +12,12 @@ function initializeEnterance(){
         const key = formData.get('key');
         const pass = formData.get('pass');
         
-        if(!key || (key.toLocaleLowerCase()) !== 'i love you'){
+        if(!key || (key.toLocaleLowerCase()) !== 'station'){
             enteranceMessageDisplay.textContent = 'Access Denied';
             enteranceMessageDisplay.dataset.state = 'denied';
             return;
         }
-        if(!pass || (pass.toLocaleLowerCase()) !== 'rebecca loren'){
+        if(!pass || (pass.toLocaleLowerCase()) !== 'bill and ted'){
             enteranceMessageDisplay.textContent = 'Access Denied';
             enteranceMessageDisplay.dataset.state = 'denied';
             return;
@@ -25,7 +25,7 @@ function initializeEnterance(){
         enteranceMessageDisplay.textContent = 'Access Granted';
         enteranceMessageDisplay.dataset.state = 'granted';
         setTimeout( ()=> { 
-            window.location.href = 'http://127.0.0.1:5500'
+            window.location.href = 'https://altycon.git.io/mouther_v0/index.html';
         },2000);
         
     })
