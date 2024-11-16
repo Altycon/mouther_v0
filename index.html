@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouther</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="main.css">
+    <script type="module" src="js/index.js"></script>
+</head>
+<body>
+    <header class="primary-header">
+        <button type="button" id="OpenAppSettingsButton" class="btn open-app-settings-btn" data-state="closed">&#9881;</button>
+        <h1 class="app-title">Mouther</h1>
+        <div class="device-connection-controls">
+            <button type="button" id="ConnectBluetoothButton" class="btn connect-bluetooth-btn" data-state="disconnected">&szlig;</button>
+            <button type="button" id="ConnectMicrophoneButton" class="btn connect-microphone-btn" data-state="disconnected">&#625;</button>
+        </div>
+        <div class="app-username-display">
+            <h2 id="AppUsername" class="app-username">USERNAME</h2>
+            <button type="button" id="ChangeUsernameButton" class="btn" data-state="closed">&#8634;</button>
+            <form id="AppUsernameForm" class="app-username-form">
+                <input type="text" name="username" id="AppUsernameInput" autocomplete="off" required>
+                <button type="submit" class="btn">change</button>
+                <p>* username must only contain letters and numbers</p>
+            </form>
+            <div class="app-member-status-display">
+                <p>status: <span id="UserStatusDisplay">'member'</span> <span>#</span> <span id="MemberNumberDisplay">564</span></p>
+            </div>
+        </div>
+        
+        <div class="app-connection-controls">
+            <button type="button" id="ConnectPrimaryUserButton" class="btn connect-primary-user-btn" data-state="disconnected">&#9882;</button>
+            <button type="button" id="OpenUsersOnlineMenuButton" class="btn open-users-online-menu-btn" data-state="closed">&#9903;</button>
+        </div>
+        <menu id="AppSettingsMenu" class="app-settings-menu">
+            <h2>App Settings</h2>
+            <section>
+                <h3>USERNAME: <span id="AppSettingsUsername">Guest</span></h3>
+                <p>Created: <span id="AppSettingsUserCreated">Today</span></p>
+            </section>
+            <form id="AppSettingsForm" class="app-settings-form">
+                <fieldset class="saving">
+                    <legend><strong>SAVING</strong></legend>
+                    <p>This will allow you to save your profile information locally to your browser.</p>
+                    <div class="field">
+                        <!-- <label for="">Save Locally</label> -->
+                        <input type="button" value="Save Locally" data-action="save-locally">
+                    </div>
+                </fieldset>
+                <fieldset class="app-colors">
+                    <legend><strong>APP COLORS</strong></legend>
+                    
+                    <div class="field">
+                        <label for="BackgroundColorPrimary">background</label>
+                        <input type="color" name="background-color-primary" value="#ffffff" id="BackgroundColorPrimary">
+                    </div>
+                    <div class="field">
+                        <label for="TextColorPrimary">text</label>
+                        <input type="color" name="text-color-primary" value="#ffffff" id="TextColorPrimary">
+                    </div>
+                    <div class="field">
+                        <label for="AccentColor">accent</label>
+                        <input type="color" name="accent-color" value="#ffffff" id="AccentColor">
+                    </div>
+                   
+                </fieldset>
+                <fieldset class="button-colors">
+                    <legend><strong>BUTTON COLORS</strong></legend>
+                    <section>
+                        <div class="field">
+                            <label for="ButtonPrimaryColor">primary</label>
+                            <input type="color" name="button-primary-color" value="#ffffff" id="ButtonPrimaryColor">
+                        </div>
+                        <div class="field">
+                            <label for="ButtonTalkColor">talk</label>
+                            <input type="color" name="button-talk-color" value="#ffffff" id="ButtonTalkColor">
+                        </div>
+                        <div class="field">
+                            <label for="ButtonBeepColor">beep</label>
+                            <input type="color" name="button-beep-color" value="#ffffff" id="ButtonBeepColor">
+                        </div>
+                    </section>
+                    <section>
+                        <div class="field">
+                            <label for="ButtonOpenedColor">opened</label>
+                            <input type="color" name="button-opened-color" value="#ffffff" id="ButtonOpenedColor">
+                        </div>
+                        <div class="field">
+                            <label for="ButtonClosedColor">closed</label>
+                            <input type="color" name="button-closed-color" value="#ffffff" id="ButtonClosedColor">
+                        </div>
+                        <div class="field">
+                            <label for="ButtonChangeColor">change</label>
+                            <input type="color" name="button-change-color" value="#ffffff" id="ButtonChangeColor">
+                        </div>
+                    </section>
+                    <section>
+                        <div class="field">
+                            <label for="ButtonConnectedColor">connected</label>
+                            <input type="color" name="button-connected-color" value="#ffffff" id="ButtonConnectedColor">
+                        </div>
+                        <div class="field">
+                            <label for="ButtonConnectingColor">connecting</label>
+                            <input type="color" name="button-connecting-color" value="#ffffff" id="ButtonConnectingColor">
+                        </div>
+                        <div class="field">
+                            <label for="ButtonDisconnectedColor">disconnected</label>
+                            <input type="color" name="button-disconnected-color" value="#ffffff" id="ButtonDisconnectedColor">
+                        </div>
+                    </section>
+                </fieldset>
+                <fieldset class="database-controls">
+                    <legend><strong>DATA</strong></legend>
+                    <div class="field">
+                        <input type="button" value="reset" data-action="reset">
+                    </div>
+                    <div class="field">
+                        <input type="button" value="delete" data-action="delete">
+                    </div>
+                </fieldset>
+            </form>
+        </menu>
+        <menu id="UsersOnlineMenu" class="users-online-menu">
+            <h2>online users</h2>
+            <ul id="UsersOnlineList" class="users-online-list">
+                
+            </ul>
+        </menu>
+    </header>
+    <main>
+        <div class="app-data">
+            <ul class="app-data-list">
+                <li class="app-data-item">
+                    <h3>internet</h3>
+                    <p id="InternetStatusDisplay">none</p>
+                </li>
+                <li class="app-data-item">
+                    <h3>bluetooth</h3>
+                    <p id="BluetoothStatusDisplay">none</p>
+                </li>
+                <li class="app-data-item">
+                    <h3>microphone</h3>
+                    <p id="MicrophoneStatusDisplay">none</p>
+                </li>
+                <li class="app-data-item">
+                    <h3>audio input</h3>
+                    <p id="MicrophoneLabelDisplay">none</p>
+                </li>
+            </ul>
+            <div id="VisualLog" class="visual-log">
+                <ul id="VisualLogList" class="visual-log-list">
+
+                </ul>
+            </div>
+        </div>
+        <div class="center">
+            <div id="Visualizer" class="visualizer">
+                <div id="VisualizerCanvasWrapper" class="visualizer-canvas-wrapper">
+                    <canvas id="VisualizerCanvas" class="visualizer-canvas"></canvas>
+                </div>
+                <div class="speaker">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+            <div class="communication-controls">
+                <button type="button" id="BeepButton" class="btn communication-beep-btn">&#629;</button>
+                <button type="button" id="TalkButton" class="btn communication-talk-btn" data-state>&#664;</button>
+            </div>
+            
+        </div>
+        <div class="users-connected">
+            <h2>connections</h2>
+            <ul id="UsersConnectedList" class="users-connected-list">
+                <!-- Users connected injected here -->
+            </ul>
+            <ul id="UserRequestsList" class="user-requests-list">
+                <!-- User requests injected here -->
+            </ul>
+        </div>
+    </main>
+    <div id="PageLoader">
+        <div class="overlay"></div>
+        <div class="content">
+            <div class="animator">
+                <div class="ball" style="--i:1;"><span></span></div>
+                <div class="ball" style="--i:2;"><span></span></div>
+                <div class="ball" style="--i:3;"><span></span></div>
+                <div class="ball" style="--i:4;"><span></span></div>
+                <div class="ball" style="--i:5;"><span></span></div>
+                <div class="ball" style="--i:6;"><span></span></div>
+                <div class="ball" style="--i:7;"><span></span></div>
+                <div class="ball" style="--i:8;"><span></span></div>
+            </div>
+        </div>
+    </div>
+    <div id="PageConfirmation" class="page-confirmation">
+        <div class="overlay"></div>
+        <div class="content">
+            <h2 class="title"></h2>
+            <div class="message"></div>
+            <div class="controls">
+                <button type="button" id="CancelPageConfirmationButton" class="btn">cancel x</button>
+                <button type="button" id="ConfirmPageConfirmationButton" class="btn">confirm</button>
+            </div>
+        </div>
+    </div>
+    <div id="PageNotification" class="page-notification">
+        <div class="overlay"></div>
+        <div class="content">
+            <h2 class="title"></h2>
+            <div class="message"></div>
+            <div class="instructions" ></div>
+            <div class="controls">
+                <button type="button" id="ClosePageNotificationButton" class="btn">close x</button>
+            </div>
+        </div>
+    </div>
+    <div class="popout-notification">
+        <div class="content">
+            <div class="message"></div>
+            <button type="button" class="btn"><strong>x</strong></button>
+        </div>
+    </div>
+</body>
