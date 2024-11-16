@@ -17,7 +17,7 @@ export function drawVisualization(dataArray){
     for(let i = 0; i < Visualizer.frequencyDotTotal; i++){
 
         const y = scale(dataArray[i],0,255,Visualizer.height,0);
-        const radius = scale(y,Visualizer.height,0,1,5);
+        const radius = scale(y,Visualizer.height,0,1,5) * DPI;
         Visualizer.context.fillStyle = dataArray[i] > 0 ? 'limegreen':'white';
         Visualizer.context.beginPath();
         Visualizer.context.arc( x1,y,radius,0,TWO_PI );
