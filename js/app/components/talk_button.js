@@ -19,7 +19,6 @@ function stopTalking(pointerUpEvent){
 };
 function startTalking(pointerDownEvent){
     pointerDownEvent.preventDefault();
-    console.log(Microphone.stream)
     if(!Microphone.stream) return;
 
     console.log('talking started');

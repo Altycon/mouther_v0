@@ -74,7 +74,7 @@ export function initializeVisualizer(){
     Visualizer.width = visualizerCanvas.width;
     Visualizer.height = visualizerCanvas.height;
     Visualizer.context = visualizerCanvas.getContext('2d');
-    Visualizer.context.scale(DPI,DPI);
+    //Visualizer.context.scale(DPI,DPI);
     Visualizer.center = Visualizer.width * 0.5;
     Visualizer.frequencyDotTotal = 32;
     Visualizer.frequencyDotSpacing = (Visualizer.width * 0.5)/Visualizer.frequencyDotTotal;
